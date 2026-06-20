@@ -1,0 +1,11 @@
+#MIUI MOD: NFC_MIUINFCFrame
+service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nqnfc-service.nxp
+    class early_hal
+    user nfc
+    group nfc oem_2912
+#END NFC_MIUINFCFrame
+    disabled
+on property:ro.boot.board_id=S99007HA1
+    start vendor.nfc_hal_service
+on property:ro.boot.board_id=S99007IA1
+    start vendor.nfc_hal_service

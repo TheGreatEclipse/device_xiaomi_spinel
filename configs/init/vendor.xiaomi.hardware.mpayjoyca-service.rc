@@ -1,0 +1,10 @@
+service vendor.mpayjoyca /vendor/bin/payjoyca
+    class hal
+    user system
+    group system
+    oneshot
+    disabled
+    interface aidl vendor.xiaomi.hardware.mpayjoyca.IPayjoyService/default
+
+on property:sys.boot_completed=1
+    start vendor.mpayjoyca

@@ -1,0 +1,10 @@
+service vendor.miguardca /vendor/bin/miguardca
+    class hal
+    user system
+    group system
+    oneshot
+    disabled
+    interface aidl vendor.xiaomi.hardware.miguardca.IMiguardService/default
+
+on property:sys.boot_completed=1
+    start vendor.miguardca
